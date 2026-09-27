@@ -1,28 +1,30 @@
-# Starlight Starter Kit: Basics
+# `agent-md` docs - A CLI that helps you write LLM-friendly markdown
+
+<div align="center"><img src="logo.svg" alt="agent-md logo" width="128" height="128"><br /><a href="https://dopana.com" target="_blank">Sponsored by dopana.com</a></div>
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
+```text
 bun create astro@latest -- --template starlight
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+>🧑‍🚀 Seasoned astronaut? Delete this file. Have fun!
 
 ## 🚀 Project Structure
 
 Inside of your Astro + Starlight project, you'll see the following folders and files:
 
-```
+```text
 .
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+├─public/
+├─src/
+│   ├─assets/
+│   ├─content/
+│   │   └─docs/
+│   └─content.config.ts
+├─astro.config.mjs
+├─package.json
+└─tsconfig.json
 ```
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
@@ -35,14 +37,14 @@ Static assets, like favicons, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+| Command | Action |
+|---|---|
+| `bun install` | Installs dependencies |
+| `bun dev` | Starts local dev server at `localhost:4321` |
+| `bun build` | Build your production site to `./dist/` |
+| `bun preview` | Preview your build locally, before deploying |
+| `bun astro ...` | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help` | Get help using the Astro CLI |
 
 ## 👀 Want to learn more?
 
