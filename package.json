@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "bun run build && wrangler pages deploy dist --project-name agent-md",
     "astro": "astro"
   },
   "dependencies": {
