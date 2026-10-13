@@ -1,40 +1,154 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: agent-md
+description: A fast CLI and library designed to write, format, and lint LLM-friendly, token-efficient Markdown for AI agents.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Fast Markdown editor, linter, and formatter designed for AI agents and LLM pipelines. Save tokens, speed up inference, and reduce costs.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/logo.svg
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Getting Started
+      link: /getting-started/introduction/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: CLI Usage Guide
+      link: /guides/cli-usage/
+      icon: document
+      variant: secondary
+    - text: VS Code Extension
+      link: https://marketplace.visualstudio.com/items?itemName=loclv.agent-md-formatter
       icon: external
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard, Tabs, TabItem } from '@astrojs/starlight/components';
 
-## Next steps
+## Why agent-md?
+
+Modern software development increasingly relies on LLMs and autonomous AI agents reading, writing, and modifying Markdown documentation. However, conventional Markdown is designed for human visual comfort—packed with decorative characters, padded tables, bold markers, and ASCII art trees that inflate prompt sizes and waste context tokens.
+
+`agent-md` introduces an AI-first Markdown standard with zero-overhead tooling.
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+  <Card title="Token Optimization" icon="rocket">
+    Reduces up to **20% of unnecessary tokens** across tables, lists, comments, and directory trees without losing information density.
+  </Card>
+  <Card title="AI Agent First" icon="setting">
+    Designed for autonomous tool execution: structured JSON output, section-level read/write operations, and pre-validation.
+  </Card>
+  <Card title="Hardware Accelerated" icon="laptop">
+    Written in pure Rust with **SIMD vectorization** (ARM NEON & AVX2/SSE2) and zero runtime dependencies for lightning-fast parsing.
+  </Card>
+  <Card title="Extensible Ecosystem" icon="puzzle">
+    Includes official VS Code/Cursor/Devin extension, standalone CLI, Cargo crate library, and Homebrew tap.
+  </Card>
+</CardGrid>
+
+---
+
+## Token Efficiency in Action
+
+See how `agent-md` compacts standard Markdown elements into clean, dense, LLM-friendly structures:
+
+<Tabs>
+  <TabItem label="Tables">
+```diff
+ | Function | Arguments | Return Type | Description                   |
+-|----------|-----------|-------------|-------------------------------|
+-| `add()`  | a, b      | i32         | Adds two numbers              |
+-| `sub()`  | a, b      | i32         | Subtracts numbers             |
++|---|---|---|---|
++| `add()` | a, b | i32 | Adds two numbers |
++| `sub()` | a, b | i32 | Subtracts numbers |
+```
+  </TabItem>
+  <TabItem label="Shell Comments">
+```diff
+-bun i                      # Install dependencies
+-bun run dev                # Run the development server
+-bun run build              # Run production build
++bun i # Install dependencies
++bun run dev # Run the development server
++bun run build # Run production build
+```
+  </TabItem>
+  <TabItem label="Directory Trees">
+```diff
+ project-folder/
+-├── src/
+-│   ├── main.rs
+-│   └── lib.rs
+-└── Cargo.toml
++├─src/
++│ ├─main.rs
++│ └─lib.rs
++└─Cargo.toml
+```
+  </TabItem>
+  <TabItem label="HTML Minification">
+```diff
+-<p align="center">
+-  <img src="badge.png" alt="Badge" />
+-</p>
++<p align="center"><img src="badge.png" alt="Badge" /></p>
+```
+  </TabItem>
+</Tabs>
+
+---
+
+## Quick Installation
+
+<Tabs>
+  <TabItem label="Homebrew (macOS & Linux)">
+```bash
+brew tap loclv/tools
+brew install agent-md
+```
+  </TabItem>
+  <TabItem label="Cargo">
+```bash
+cargo install agent-md
+```
+  </TabItem>
+  <TabItem label="Build From Source">
+```bash
+git clone https://github.com/loclv/agent-md.git
+cd agent-md
+cargo build --release
+# Binary available at target/release/agent-md
+```
+  </TabItem>
+  <TabItem label="Rust Library">
+```toml
+[dependencies]
+agent-md = "0.5.0"
+```
+  </TabItem>
+</Tabs>
+
+---
+
+## Explore Documentation
+
+<CardGrid>
+  <LinkCard
+    title="CLI Usage Guide"
+    description="Learn all CLI subcommands: read, write, write-section, fmt, lint, and stats."
+    href="/guides/cli-usage/"
+  />
+  <LinkCard
+    title="LLM & Agent Integration"
+    description="Rules and best practices for incorporating agent-md into AI agent loops."
+    href="/guides/llm-agent-integration/"
+  />
+  <LinkCard
+    title="Markdown Writing Rules"
+    description="Complete guide to AI-friendly Markdown syntax: no-bold, simple tables, and code blocks."
+    href="/guides/markdown-writing-rules/"
+  />
+  <LinkCard
+    title="Configuration & Overrides"
+    description="Configure .agent-md.json, overrides, and markdownlintrc compatibility."
+    href="/guides/configuration/"
+  />
 </CardGrid>
